@@ -5,8 +5,7 @@
   "main": "next.config.js",
   "scripts": {
     "dev": "next",
-    "build": "next build",
-    "postbuild": "next-on-netlify"
+    "build": "next build"
   },
   "repository": {
     "type": "git",
@@ -21,7 +20,6 @@
   "dependencies": {
     "next": "^10.0.3",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "next-on-netlify": "^2.9.0"
+    "react-dom": "^17.0.1"
   }
 }
