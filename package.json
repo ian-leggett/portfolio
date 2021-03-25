@@ -1,0 +1,24 @@
+{
+  "name": "netlify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "next.config.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "postbuild": "next-on-netlify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ian-leggett/netlify.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ian-leggett/netlify/issues"
+  },
+  "homepage": "https://github.com/ian-leggett/netlify#readme",
+  "dependencies": {
+    "next-on-netlify": "^2.9.0"
+  }
+}
