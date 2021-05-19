@@ -41,6 +41,12 @@ const StyledHeader = styled('h1')`
   ${MEDIA_QUERIES.DESKTOP} {
     font-size: 6rem;
   }
+  div:first-child {
+    font-weight: 400;
+  }
+  div:last-child {
+    font-weight: 400;
+  }
 `
 const StyledSubHeader = styled('h2')`
   color: ${({ theme }) => theme.palette.turquoise};
@@ -85,6 +91,7 @@ const StyledLink = styled('a')`
   }
 
   &:hover {
+    color: ${({ theme }) => theme.palette.turquoise};
     span:first-child {
       transform: scale(1.2);
     }
@@ -98,7 +105,7 @@ const Index = () => {
   const [eyes, setEyes] = useState('happy')
   const [hasEnteredSite, setEnterSite] = useState(false)
 
-  const activateBigHead = (isActive) => {
+  const onHoverRespond = (isActive) => {
     isActive ? setEyes('normal') : setEyes('happy')
   }
 
@@ -168,8 +175,8 @@ const Index = () => {
           </div>
           <Link href="/about">
             <StyledLink
-              onMouseEnter={() => activateBigHead(true)}
-              onMouseLeave={() => activateBigHead(false)}
+              onMouseEnter={() => onHoverRespond(true)}
+              onMouseLeave={() => onHoverRespond(false)}
               onClick={enterSite}
             >
               <Delay animation="fadeIn" duration="2s" delay={3000} as="span">
