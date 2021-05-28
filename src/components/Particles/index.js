@@ -4,6 +4,7 @@ import options from './options'
 
 const StyledTsParticles = styled(TsParticles)`
   height: 100vh;
+  width: 100%;
 `
 const Particles = () => <StyledTsParticles id="tsparticles" options={options} />
 

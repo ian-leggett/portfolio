@@ -81,13 +81,10 @@ select {
   font-style: normal;
   font-weight: 100;
   font-display: block;
-  src: url('/assets/fonts/jost-v6-latin-100.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/assets/fonts/jost-v6-latin-100.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  src:
        url('/assets/fonts/jost-v6-latin-100.woff2') format('woff2'), /* Super Modern Browsers */
        url('/assets/fonts/jost-v6-latin-100.woff') format('woff'), /* Modern Browsers */
        url('/assets/fonts/jost-v6-latin-100.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/assets/fonts/jost-v6-latin-100.svg#Jost') format('svg'); /* Legacy iOS */
 }
 /* jost-regular - latin */
 @font-face {
@@ -95,13 +92,11 @@ select {
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url('/assets/fonts/jost-v6-latin-regular.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/assets/fonts/jost-v6-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  src: 
        url('/assets/fonts/jost-v6-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
        url('/assets/fonts/jost-v6-latin-regular.woff') format('woff'), /* Modern Browsers */
        url('/assets/fonts/jost-v6-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/assets/fonts/jost-v6-latin-regular.svg#Jost') format('svg'); /* Legacy iOS */
+   
 }
 /* jost-500 - latin */
 @font-face {
@@ -109,13 +104,10 @@ select {
   font-style: normal;
   font-weight: 500;
   font-display: block;
-  src: url('/assets/fonts/jost-v6-latin-500.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/assets/fonts/jost-v6-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  src:
        url('/assets/fonts/jost-v6-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
        url('/assets/fonts/jost-v6-latin-500.woff') format('woff'), /* Modern Browsers */
        url('/assets/fonts/jost-v6-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/assets/fonts/jost-v6-latin-500.svg#Jost') format('svg'); /* Legacy iOS */
 }
 /* jost-700 - latin */
 @font-face {
@@ -123,13 +115,11 @@ select {
   font-style: normal;
   font-weight: 700;
   font-display: block;
-  src: url('/assets/fonts/jost-v6-latin-700.eot'); /* IE9 Compat Modes */
-  src: local(''),
-       url('/assets/fonts/jost-v6-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  src:
        url('/assets/fonts/jost-v6-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
        url('/assets/fonts/jost-v6-latin-700.woff') format('woff'), /* Modern Browsers */
        url('/assets/fonts/jost-v6-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/assets/fonts/jost-v6-latin-700.svg#Jost') format('svg'); /* Legacy iOS */
+
 }
 
 html {

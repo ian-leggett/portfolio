@@ -1,15 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import styled from 'styled-components'
-import { BigHead } from '@bigheads/core'
 import { IoIosArrowDown } from 'react-icons/io'
 
 import { MEDIA_QUERIES } from '../styles/constants'
 import Particles from '../components/Particles'
 import Delay from '../components/Delay'
+import BigHeadLeggett from '../components/BigHeadLeggett'
 
-const BackgroundGradient = styled('div')`
+export const BackgroundGradient = styled('div')`
   background: rgb(47, 61, 75);
   background: linear-gradient(
     0deg,
@@ -17,16 +18,15 @@ const BackgroundGradient = styled('div')`
     rgba(37, 37, 37, 1) 100%
   );
   height: 100vh;
-  position: relative;
 `
 
 const CenterContainer = styled('div')`
-  min-width: 320px;
   text-align: center;
   position: absolute;
   top: 300px;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 9;
 `
 
 const StyledHeader = styled('h1')`
@@ -35,6 +35,7 @@ const StyledHeader = styled('h1')`
   font-weight: 700;
   margin: 0;
   font-size: 4rem;
+  line-height: 1.2;
   ${MEDIA_QUERIES.TABLET} {
     font-size: 5rem;
   }
@@ -42,9 +43,11 @@ const StyledHeader = styled('h1')`
     font-size: 6rem;
   }
   div:first-child {
+    margin-right: 10px;
     font-weight: 400;
   }
   div:last-child {
+    margin-left: 10px;
     font-weight: 400;
   }
 `
@@ -52,22 +55,13 @@ const StyledSubHeader = styled('h2')`
   color: ${({ theme }) => theme.palette.turquoise};
   font-weight: 100;
   font-size: 3rem;
+  line-height: 1.2;
   margin-bottom: 30px;
   ${MEDIA_QUERIES.TABLET} {
     font-size: 4rem;
   }
   ${MEDIA_QUERIES.DESKTOP} {
     font-size: 5rem;
-  }
-`
-
-const StyledBigHead = styled(BigHead)`
-  width: 250px;
-  ${MEDIA_QUERIES.TABLET} {
-    width: 280px;
-  }
-  ${MEDIA_QUERIES.DESKTOP} {
-    width: 300px;
   }
 `
 
@@ -102,6 +96,7 @@ const StyledLink = styled('a')`
 `
 
 const Index = () => {
+  const router = useRouter()
   const [eyes, setEyes] = useState('happy')
   const [hasEnteredSite, setEnterSite] = useState(false)
 
@@ -114,45 +109,37 @@ const Index = () => {
     setEnterSite(true)
   }
 
+  useEffect(() => {
+    hasEnteredSite &&
+      setTimeout(() => {
+        console.log('yes')
+        router.push('/about')
+      }, 2000)
+  }, [hasEnteredSite])
+
   return (
     <>
       <Head>
         <title>Ian Leggett - Front-end web developer</title>
       </Head>
       <BackgroundGradient>
-        <Particles />
+        {!hasEnteredSite && <Particles />}
         <CenterContainer>
           <div>
-            <Delay animation="bounceInDown" delay="1000" duration="0.5s">
-              <StyledBigHead
-                accessory="none"
-                body="chest"
-                circleColor="blue"
-                clothing="shirt"
-                clothingColor="blue"
-                eyebrows="raised"
-                eyes={hasEnteredSite ? 'normal' : eyes}
-                faceMask={false}
-                lashes={false}
-                faceMaskColor="black"
-                facialHair="stubble"
-                graphic="react"
-                hair="none"
-                hairColor="white"
-                hat="none5"
-                hatColor="blue"
-                lipColor="turqoise"
-                mask={false}
-                mouth="openSmile"
-                skinTone="light"
-              />
+            <Delay
+              hideAfter={hasEnteredSite}
+              animation={hasEnteredSite ? 'bounceOutUp' : 'bounceInDown'}
+              delay={2000}
+              duration="0.5s"
+            >
+              <BigHeadLeggett eyesStyle={hasEnteredSite ? 'dizzy' : eyes} />
             </Delay>
           </div>
           <div>
             <StyledHeader>
               <Delay
                 hideAfter={hasEnteredSite}
-                animation={hasEnteredSite ? 'zoomOutLeft' : 'zoomInLeft'}
+                animation={hasEnteredSite ? 'fadeOutUp' : 'fadeInUp'}
                 delay={2000}
               >{`<`}</Delay>
               <Delay
@@ -163,13 +150,17 @@ const Index = () => {
               </Delay>
               <Delay
                 hideAfter={hasEnteredSite}
-                animation={hasEnteredSite ? 'zoomOutRight' : 'zoomInRight'}
+                animation={hasEnteredSite ? 'fadeOutUp' : 'fadeInUp'}
                 delay={2000}
               >{`/>`}</Delay>
             </StyledHeader>
           </div>
           <div>
-            <Delay animation="fadeInUp" delay={1200}>
+            <Delay
+              hideAfter={hasEnteredSite}
+              animation={hasEnteredSite ? 'fadeOutDown' : 'fadeInUp'}
+              delay={1200}
+            >
               <StyledSubHeader>Front-end developer</StyledSubHeader>
             </Delay>
           </div>
@@ -179,11 +170,18 @@ const Index = () => {
               onMouseLeave={() => onHoverRespond(false)}
               onClick={enterSite}
             >
-              <Delay animation="fadeIn" duration="2s" delay={3000} as="span">
+              <Delay
+                hideAfter={hasEnteredSite}
+                animation={hasEnteredSite ? 'fadeOut' : 'fadeIn'}
+                duration="2s"
+                delay={3000}
+                as="span"
+              >
                 Want to know about me?
               </Delay>
               <Delay
-                animation="fadeInDown"
+                hideAfter={hasEnteredSite}
+                animation={hasEnteredSite ? 'fadeOutDown' : 'fadeInDown'}
                 duration="0.5s"
                 delay={3500}
                 as="span"
